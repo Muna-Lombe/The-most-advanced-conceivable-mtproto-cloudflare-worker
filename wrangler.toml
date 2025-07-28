@@ -1,0 +1,38 @@
+name = "mtproto-worker"
+main = "dist/index.js"
+compatibility_date = "2024-05-12"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "mtproto-worker"
+
+[env.staging]
+name = "mtproto-worker-staging"
+
+# KV Storage for caching
+[[kv_namespaces]]
+binding = "MTPROTO_CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+# Durable Objects for session management
+[[durable_objects.bindings]]
+name = "SESSION_MANAGER"
+class_name = "SessionManager"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["SessionManager"]
+
+# Environment variables
+[vars]
+API_ID = "your-api-id"
+API_HASH = "your-api-hash"
+ENVIRONMENT = "development"
+
+# Rate limiting configuration
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+
+# WebSocket support
+[websocket]
