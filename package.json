@@ -1,0 +1,48 @@
+{
+  "name": "mtproto-cloudflare-worker",
+  "version": "1.0.0",
+  "description": "The most advanced conceivable MTProto Cloudflare Worker implementation",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish",
+    "build": "tsc && webpack",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "mtproto",
+    "telegram",
+    "cloudflare",
+    "worker",
+    "edge",
+    "serverless"
+  ],
+  "author": "MTProto Worker Team",
+  "license": "MIT",
+  "dependencies": {
+    "big-integer": "^1.6.52",
+    "crypto-js": "^4.2.0",
+    "pako": "^2.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240512.0",
+    "@types/crypto-js": "^4.2.2",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "@types/pako": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "jest-environment-miniflare": "^2.14.2",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "wrangler": "^3.53.1"
+  }
+}
