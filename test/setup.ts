@@ -3,7 +3,8 @@
  */
 
 // Mock crypto.getRandomValues for Node.js environment
-import { webcrypto } from 'crypto';
+declare const require: any;
+const { webcrypto } = require('crypto');
 
 // @ts-ignore
 global.crypto = webcrypto;

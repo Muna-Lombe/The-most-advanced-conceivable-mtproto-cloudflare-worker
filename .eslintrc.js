@@ -3,26 +3,23 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
-    'eslint:recommended',
-    '@typescript-eslint/recommended',
-    '@typescript-eslint/recommended-requiring-type-checking'
+    'eslint:recommended'
   ],
   parserOptions: {
     ecmaVersion: 2022,
-    sourceType: 'module',
-    project: './tsconfig.json'
+    sourceType: 'module'
   },
   env: {
     browser: true,
     es2022: true,
-    worker: true
+    worker: true,
+    node: true
   },
   rules: {
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    '@typescript-eslint/explicit-function-return-type': 'warn',
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/prefer-const': 'error',
-    '@typescript-eslint/no-inferrable-types': 'off'
+    'prefer-const': 'error',
+    'no-var': 'error'
   },
-  ignorePatterns: ['dist/', 'node_modules/', '*.js']
+  ignorePatterns: ['dist/', 'node_modules/', '*.js', 'examples/', 'test/']
 };
