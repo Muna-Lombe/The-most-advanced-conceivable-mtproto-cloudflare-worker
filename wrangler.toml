@@ -1,5 +1,5 @@
 name = "mtproto-cloudflare-worker"
-main = "dist/index.js"
+main = "dist/bundle.js"
 compatibility_date = "2024-05-12"
 compatibility_flags = ["nodejs_compat"]
 
@@ -9,13 +9,11 @@ name = "mtproto-cloudflare-worker"
 [env.staging]
 name = "mtproto-cloudflare-worker-staging"
 
-# KV Storage for caching
 [[kv_namespaces]]
 binding = "MTPROTO_CACHE"
 id = "f967491363214d97967f6ad51344bef2"
 preview_id = "your-preview-kv-namespace-id"
 
-# Durable Objects for session management
 [[durable_objects.bindings]]
 name = "SESSION_MANAGER"
 class_name = "SessionManager"
@@ -24,15 +22,10 @@ class_name = "SessionManager"
 tag = "v1"
 new_classes = ["SessionManager"]
 
-# Environment variables
 [vars]
 API_ID = "your-api-id"
 API_HASH = "your-api-hash"
 ENVIRONMENT = "development"
 
-# Rate limiting configuration
 [[analytics_engine_datasets]]
 binding = "ANALYTICS"
-
-# WebSocket support
-[websocket]
