@@ -1,18 +1,18 @@
-name = "mtproto-worker"
+name = "mtproto-cloudflare-worker"
 main = "dist/index.js"
 compatibility_date = "2024-05-12"
 compatibility_flags = ["nodejs_compat"]
 
 [env.production]
-name = "mtproto-worker"
+name = "mtproto-cloudflare-worker"
 
 [env.staging]
-name = "mtproto-worker-staging"
+name = "mtproto-cloudflare-worker-staging"
 
 # KV Storage for caching
 [[kv_namespaces]]
 binding = "MTPROTO_CACHE"
-id = "your-kv-namespace-id"
+id = "f967491363214d97967f6ad51344bef2"
 preview_id = "your-preview-kv-namespace-id"
 
 # Durable Objects for session management

@@ -12,9 +12,9 @@
  * - High-performance edge computing optimizations
  */
 
-import { MTProtoEnvironment } from './types.js';
-import { MTProtoHandler } from './handlers/mtproto-handler.js';
-import { SessionManager } from './durable-objects/session-manager.js';
+import { MTProtoEnvironment } from './types';
+import { MTProtoHandler } from './handlers/mtproto-handler';
+import { SessionManager } from './durable-objects/session-manager';
 
 // Export Durable Object
 export { SessionManager };

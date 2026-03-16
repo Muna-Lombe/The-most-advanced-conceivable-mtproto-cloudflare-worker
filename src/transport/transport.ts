@@ -4,7 +4,7 @@
  */
 
 import { TransportConfig, TransportType } from '../types';
-import { crc32, validateMessageFormat, retryWithBackoff } from '../utils/helpers';
+import { crc32, validateMessageFormat, retryWithBackoff, toRequestBody } from '../utils/helpers';
 
 export abstract class Transport {
   protected config: TransportConfig;
@@ -75,7 +75,7 @@ export class HTTPTransport extends Transport {
       const result = await fetch(this.config.endpoint, {
         method: 'POST',
         headers,
-        body: data,
+        body: toRequestBody(data),
         signal: this.abortController?.signal
       });
 
@@ -268,7 +268,7 @@ export class TCPTransport extends Transport {
       const result = await fetch(this.config.endpoint, {
         method: 'POST',
         headers,
-        body: packet
+        body: toRequestBody(packet)
       });
 
       if (!result.ok) {
@@ -402,4 +402,6 @@ export class TransportFactory {
 
     return datacenters[dcId] || datacenters[1]!;
   }
+
+  
 }

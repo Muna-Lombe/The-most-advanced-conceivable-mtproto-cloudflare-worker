@@ -214,3 +214,7 @@ export async function retryWithBackoff<T>(
   
   throw lastError!;
 }
+
+export function toRequestBody(data: Uint8Array): ArrayBuffer {
+  return data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength) as ArrayBuffer;
+}
