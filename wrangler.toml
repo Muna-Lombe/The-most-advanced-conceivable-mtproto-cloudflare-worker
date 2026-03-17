@@ -1,5 +1,5 @@
 name = "mtproto-cloudflare-worker"
-main = "dist/index.js"
+main = "src/index.ts"
 compatibility_date = "2024-05-12"
 compatibility_flags = ["nodejs_compat"]
 
@@ -17,6 +17,7 @@ preview_id = "your-preview-kv-namespace-id"
 [[durable_objects.bindings]]
 name = "SESSION_MANAGER"
 class_name = "SessionManager"
+script_name = "mtproto-cloudflare-worker"
 
 [[migrations]]
 tag = "v1"

@@ -5,8 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler publish",
-    "build": "tsc && webpack",
+    "build": "tsc --noEmit",
+    "deploy": "wrangler deploy",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*.ts",
