@@ -3,6 +3,21 @@ main = "src/index.ts"
 compatibility_date = "2024-05-12"
 compatibility_flags = ["nodejs_compat"]
 
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = false
+persist = true
+head_sampling_rate = 1
+
 [env.production]
 name = "mtproto-cloudflare-worker"
 
@@ -24,9 +39,9 @@ tag = "v1"
 new_classes = ["SessionManager"]
 
 [vars]
-API_ID = "your-api-id"
-API_HASH = "your-api-hash"
-ENVIRONMENT = "development"
+#API_ID = "your-api-id"
+#API_HASH = "your-api-hash"
+#ENVIRONMENT = "development"
 
 [[analytics_engine_datasets]]
 binding = "ANALYTICS"

@@ -146,12 +146,14 @@ async function handleHealthCheck(env: MTProtoEnvironment): Promise<Response> {
     // Test Durable Objects
     const testId = env.SESSION_MANAGER.newUniqueId();
     const stub = env.SESSION_MANAGER.get(testId);
-    const doResponse = await stub.fetch('/health');
+
+    const doUrl = 'https://session-manager/health';
+    const doResponse = await stub.fetch(doUrl);
+
     if (!doResponse.ok) {
       health.services.durableObjects = 'unhealthy';
       health.status = 'degraded';
     }
-
   } catch (error) {
     console.error('Health check error:', error);
     health.status = 'unhealthy';
